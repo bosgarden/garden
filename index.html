@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bos Garden — Care Schedule</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet">
 <style>
   :root {
     --cream: #f7f2e8;
@@ -279,7 +278,7 @@
 
 <header>
   <div class="header-tag">🌿 Backyard Garden — New Port Richey / Tampa, FL</div>
-  <h1>Care & <em>Watering</em> Schedule <span class="zone-badge">Zone 9b</span></h1>
+  <h1>Care &amp; <em>Watering</em> Schedule <span class="zone-badge">Zone 9b</span></h1>
   <div class="header-sub">12 plants · Filtered hose water · Afternoon sun · Pasco County · Updated May 27, 2026</div>
 </header>
 
@@ -290,21 +289,19 @@
 
 <!-- WEATHER WIDGET -->
 <div class="weather-bar">
-  <div class="weather-inner" id="wx-inner">
-    <div class="wx-loading">⟳ Loading weather for New Port Richey…</div>
-  </div>
+  <div class="weather-inner" id="wx-inner"><div class="weather-current"><div class="wx-temp">80°</div><div class="wx-meta"><div class="wx-condition">☀️ Clear</div><div class="wx-loc">New Port Richey, FL</div></div></div><div class="weather-rain-section"><div class="wx-rain-label">Recent Rainfall</div><div class="wx-rain-row"><span style="font-size:10px;color:rgba(255,255,255,0.4);width:56px;">Yesterday</span><span class="wx-rain-amt">0.11"</span><div class="wx-rain-bar-wrap"><div class="wx-rain-bar" style="width:10.6%;background:#6a9eb5"></div></div></div><div class="wx-rain-row"><span style="font-size:10px;color:rgba(255,255,255,0.4);width:56px;">Today</span><span class="wx-rain-amt">0.79"</span><div class="wx-rain-bar-wrap"><div class="wx-rain-bar" style="width:79.10000000000001%;background:#c8843a"></div></div><span class="wx-rain-skip">⏸ Skip</span></div><div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;">0.5"+ = skip next watering cycle</div></div><div class="weather-advisory"><div class="wx-advisory-icon">⏸️</div><div class="wx-advisory-text"><strong style="color:#d4a843">Skip watering most plants today</strong>0.90" rain recently. Skip next cycle for citrus, herbs, peppers. Still check blueberry and new plants.</div></div><div class="weather-forecast"><div class="wx-day today-fc"><div class="wx-day-name">Today</div><div class="wx-day-icon">⛈️</div><div class="wx-day-hi">85°</div><div class="wx-day-pop">64%</div></div><div class="wx-day"><div class="wx-day-name">Fri</div><div class="wx-day-icon">☁️</div><div class="wx-day-hi">84°</div><div class="wx-day-pop">9%</div></div><div class="wx-day"><div class="wx-day-name">Sat</div><div class="wx-day-icon">☁️</div><div class="wx-day-hi">87°</div><div class="wx-day-pop">35%</div></div><div class="wx-day"><div class="wx-day-name">Sun</div><div class="wx-day-icon">☁️</div><div class="wx-day-hi">88°</div><div class="wx-day-pop">47%</div></div><div class="wx-day"><div class="wx-day-name">Mon</div><div class="wx-day-icon">🌧️</div><div class="wx-day-hi">87°</div><div class="wx-day-pop">37%</div></div><button class="wx-refresh" onclick="loadWeather()">↻ Refresh</button></div></div>
 </div>
 
 <!-- GITHUB SYNC BAR -->
 <div class="sync-bar">
   <div class="sync-bar-inner">
     <input id="token-input" type="password" placeholder="Paste GitHub token (ghp_...) then tap Sync" style="flex:1; padding:8px 12px; border-radius:6px; border:1px solid #333; background:#161b22; color:white; font-size:13px; font-family:'DM Sans',sans-serif; min-width:0;">
-    <button class="sync-btn" id="sync-btn" onclick="syncToGitHub()">↑ Sync to GitHub</button>
+    <button class="sync-btn" id="sync-btn" onclick="syncToGitHub()" disabled="">⟳ Syncing…</button>
   </div>
   <div class="sync-bar-inner" style="padding-top:0; padding-bottom:8px;">
     <div class="sync-status" id="sync-status">
-      <span class="sync-dot" id="sync-dot"></span>&nbsp;
-      <span id="sync-msg">Paste your token above and tap Sync — token is never saved in the file</span>
+      <span class="sync-dot syncing" id="sync-dot"></span>&nbsp;
+      <span id="sync-msg">Packaging and uploading…</span>
     </div>
   </div>
 </div>
@@ -325,7 +322,7 @@
 ═══════════════════════════════════════════════════════════ -->
 <div class="panel active" id="panel-plants">
   <div class="section-label">Your Garden — As of May 27, 2026</div>
-  <div class="section-title">Plant Profiles & Current Status</div>
+  <div class="section-title">Plant Profiles &amp; Current Status</div>
 
   <div class="alert-card attn">
     <div class="alert-icon">📋</div>
@@ -480,7 +477,7 @@
           <span class="wb-label">Watering</span>
           <span class="wb-value">Check Daily / Water when top inch is dry</span>
         </div>
-        <div class="info-row" style="font-size:12px; color:#777;"><span class="info-icon">📌</span> Do NOT fertilize for 1–2 more weeks (until ~June 7). May have slight transplant droop for 2–3 days — normal. Same fast-drying caution as all 5 gal dark pots. Mulch pot surface immediately. Elevate on pot feet. When flowers appear, switch to bloom/tomato formula (low-N, higher P&K).</div>
+        <div class="info-row" style="font-size:12px; color:#777;"><span class="info-icon">📌</span> Do NOT fertilize for 1–2 more weeks (until ~June 7). May have slight transplant droop for 2–3 days — normal. Same fast-drying caution as all 5 gal dark pots. Mulch pot surface immediately. Elevate on pot feet. When flowers appear, switch to bloom/tomato formula (low-N, higher P&amp;K).</div>
       </div>
     </div>
 
@@ -610,7 +607,7 @@
         <div class="plant-icon">🌿</div>
         <div>
           <div class="plant-name">Raised Herb Bed</div>
-          <span class="plant-status status-good">✅ Established & Thriving</span>
+          <span class="plant-status status-good">✅ Established &amp; Thriving</span>
         </div>
       </div>
       <div class="card-body">
@@ -778,7 +775,7 @@
         <td class="plant-cell">🌶️ Thai Pepper</td>
         <td>Tomato-tone / low-N bloom formula (3-4-6 or similar)</td>
         <td><span class="freq-chip chip-high">Every 4 weeks</span></td>
-        <td>Last fed ~May 17. Next feed ~June 14. Heavy production = high nutrient demand. Continue low-N/higher P&K formula throughout fruiting. Harvest regularly.</td>
+        <td>Last fed ~May 17. Next feed ~June 14. Heavy production = high nutrient demand. Continue low-N/higher P&amp;K formula throughout fruiting. Harvest regularly.</td>
       </tr>
       <tr>
         <td class="plant-cell">🔥 Habanero</td>
@@ -926,10 +923,10 @@
   <div class="cal-wrap">
     <div class="cal-nav">
       <button class="cal-nav-btn" onclick="calPrev()">← Prev</button>
-      <div class="cal-month-label" id="cal-month-label"></div>
+      <div class="cal-month-label" id="cal-month-label">May 2026</div>
       <button class="cal-nav-btn" onclick="calNext()">Next →</button>
     </div>
-    <div class="cal-grid" id="cal-grid"></div>
+    <div class="cal-grid" id="cal-grid"><div class="cal-dow">Sun</div><div class="cal-dow">Mon</div><div class="cal-dow">Tue</div><div class="cal-dow">Wed</div><div class="cal-dow">Thu</div><div class="cal-dow">Fri</div><div class="cal-dow">Sat</div><div class="cal-cell other-month"><div class="cal-day-num">26</div></div><div class="cal-cell other-month"><div class="cal-day-num">27</div></div><div class="cal-cell other-month"><div class="cal-day-num">28</div></div><div class="cal-cell other-month"><div class="cal-day-num">29</div></div><div class="cal-cell other-month"><div class="cal-day-num">30</div></div><div class="cal-cell"><div class="cal-day-num">1</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell"><div class="cal-day-num">2</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">3</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">4</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">5</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">6</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">7</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">8</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">9</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">10</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">11</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">12</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">13</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">14</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">15</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">16</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">17</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">18</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">19</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">20</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">21</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">22</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">23</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell"><div class="cal-day-num">24</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+10 more</div></div><div class="cal-cell"><div class="cal-day-num">25</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell"><div class="cal-day-num">26</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell today"><div class="cal-day-num">27</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+10 more</div></div><div class="cal-cell"><div class="cal-day-num">28</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">29</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell"><div class="cal-day-num">30</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+10 more</div></div><div class="cal-cell"><div class="cal-day-num">31</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+10 more</div></div><div class="cal-cell other-month"><div class="cal-day-num">1</div></div><div class="cal-cell other-month"><div class="cal-day-num">2</div></div><div class="cal-cell other-month"><div class="cal-day-num">3</div></div><div class="cal-cell other-month"><div class="cal-day-num">4</div></div><div class="cal-cell other-month"><div class="cal-day-num">5</div></div><div class="cal-cell other-month"><div class="cal-day-num">6</div></div></div>
     <div class="cal-detail" id="cal-detail">
       <div class="cal-detail-date">Click any day to see tasks</div>
     </div>
@@ -1107,7 +1104,7 @@
     </div>
     <div class="tip-card">
       <span class="tip-icon">🐛</span>
-      <div class="tip-title">Citrus & Tomato Pest Watch</div>
+      <div class="tip-title">Citrus &amp; Tomato Pest Watch</div>
       <div class="tip-body">Zone 9b citrus faces: citrus leaf miner (squiggly trails in new leaves), Asian citrus psyllid (waxy white tubular deposits), and scale (brown bumps on stems). Spray new growth with neem oil + water + dish soap every 2–3 weeks preventatively. Tomatoes: watch for hornworms (large green caterpillars that can strip a plant in days) and aphid clusters on new growth. Treat early — pests multiply fast in Tampa heat.</div>
     </div>
     <div class="tip-card">
@@ -1673,6 +1670,7 @@ loadWeather();
 
 renderCalendar();
 </script>
-</body>
-</html>
 
+
+
+</body></html>
