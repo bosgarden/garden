@@ -127,6 +127,30 @@
   .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #666; }
   .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
 
+  /* PRUNING GUIDE STYLES */
+  .prune-plant-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+  .prune-ptab { padding: 9px 16px; border-radius: 20px; border: 1.5px solid var(--blush); background: white; color: #888; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s; white-space: nowrap; font-family: 'DM Sans', sans-serif; letter-spacing: 0.3px; }
+  .prune-ptab:hover { border-color: var(--green-mid); color: var(--green-deep); }
+  .prune-ptab.active { background: var(--green-deep); color: var(--cream); border-color: var(--green-deep); }
+  .prune-plant-panel { display: none; }
+  .prune-plant-panel.active { display: block; }
+  .prune-layout { display: grid; grid-template-columns: 280px 1fr; gap: 28px; align-items: start; }
+  @media (max-width: 680px) { .prune-layout { grid-template-columns: 1fr; } }
+  .prune-svg-wrap { background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .prune-svg-wrap svg { width: 100%; height: auto; display: block; }
+  .prune-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
+  .prune-leg { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #666; font-weight: 500; letter-spacing: 0.3px; }
+  .prune-leg-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .prune-rules { display: flex; flex-direction: column; gap: 10px; }
+  .prune-rule { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--blush); background: white; }
+  .prune-rule.cut { border-left: 3px solid #b85c38; }
+  .prune-rule.keep { border-left: 3px solid var(--green-mid); }
+  .prune-rule.warn { border-left: 3px solid var(--gold); }
+  .prune-rule.skip { border-left: 3px solid var(--sky); }
+  .prune-rule-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .prune-rule-title { font-weight: 500; font-size: 13px; color: var(--dark); margin-bottom: 3px; }
+  .prune-rule-body { font-size: 12px; color: #555; line-height: 1.55; }
+
   .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-bottom: 32px; }
   .day-col { text-align: center; }
   .day-name { font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: #999; margin-bottom: 8px; }
@@ -279,7 +303,7 @@
 <header>
   <div class="header-tag">🌿 Backyard Garden — New Port Richey / Tampa, FL</div>
   <h1>Care &amp; <em>Watering</em> Schedule <span class="zone-badge">Zone 9b</span></h1>
-  <div class="header-sub">12 plants · Filtered hose water · Afternoon sun · Pasco County · Updated May 27, 2026</div>
+  <div class="header-sub">12 plants · Filtered hose water · Afternoon sun · Pasco County · Updated May 28, 2026</div>
 </header>
 
 <div class="filter-notice">
@@ -289,13 +313,13 @@
 
 <!-- WEATHER WIDGET -->
 <div class="weather-bar">
-  <div class="weather-inner" id="wx-inner"><div class="weather-current"><div class="wx-temp">78°</div><div class="wx-meta"><div class="wx-condition">⛅ Partly cloudy</div><div class="wx-loc">New Port Richey, FL</div></div></div><div class="weather-rain-section"><div class="wx-rain-label">Recent Rainfall</div><div class="wx-rain-row"><span style="font-size:10px;color:rgba(255,255,255,0.4);width:56px;">Yesterday</span><span class="wx-rain-amt">0.11"</span><div class="wx-rain-bar-wrap"><div class="wx-rain-bar" style="width:10.6%;background:#6a9eb5"></div></div></div><div class="wx-rain-row"><span style="font-size:10px;color:rgba(255,255,255,0.4);width:56px;">Today</span><span class="wx-rain-amt">0.79"</span><div class="wx-rain-bar-wrap"><div class="wx-rain-bar" style="width:79.10000000000001%;background:#c8843a"></div></div><span class="wx-rain-skip">⏸ Skip</span></div><div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;">0.5"+ = skip next watering cycle</div></div><div class="weather-advisory"><div class="wx-advisory-icon">⏸️</div><div class="wx-advisory-text"><strong style="color:#d4a843">Skip watering most plants today</strong>0.90" rain recently. Skip next cycle for citrus, herbs, peppers. Still check blueberry and new plants.</div></div><div class="weather-forecast"><div class="wx-day today-fc"><div class="wx-day-name">Today</div><div class="wx-day-icon">⛈️</div><div class="wx-day-hi">85°</div><div class="wx-day-pop">64%</div></div><div class="wx-day"><div class="wx-day-name">Fri</div><div class="wx-day-icon">☁️</div><div class="wx-day-hi">84°</div><div class="wx-day-pop">10%</div></div><div class="wx-day"><div class="wx-day-name">Sat</div><div class="wx-day-icon">☁️</div><div class="wx-day-hi">84°</div><div class="wx-day-pop">35%</div></div><div class="wx-day"><div class="wx-day-name">Sun</div><div class="wx-day-icon">☁️</div><div class="wx-day-hi">88°</div><div class="wx-day-pop">47%</div></div><div class="wx-day"><div class="wx-day-name">Mon</div><div class="wx-day-icon">🌧️</div><div class="wx-day-hi">87°</div><div class="wx-day-pop">37%</div></div><button class="wx-refresh" onclick="loadWeather()">↻ Refresh</button></div></div>
+  <div class="weather-inner" id="wx-inner"><div class="weather-current"><div class="wx-temp">81°</div><div class="wx-meta"><div class="wx-condition">⛅ Partly cloudy</div><div class="wx-loc">New Port Richey, FL</div></div></div><div class="weather-rain-section"><div class="wx-rain-label">Recent Rainfall</div><div class="wx-rain-row"><span style="font-size:10px;color:rgba(255,255,255,0.4);width:56px;">Yesterday</span><span class="wx-rain-amt">0.79"</span><div class="wx-rain-bar-wrap"><div class="wx-rain-bar" style="width:79.10000000000001%;background:#c8843a"></div></div><span class="wx-rain-skip">⏸ Skip</span></div><div class="wx-rain-row"><span style="font-size:10px;color:rgba(255,255,255,0.4);width:56px;">Today</span><span class="wx-rain-amt">0.00"</span><div class="wx-rain-bar-wrap"><div class="wx-rain-bar" style="width:0%;background:rgba(255,255,255,0.2)"></div></div></div><div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;">0.5"+ = skip next watering cycle</div></div><div class="weather-advisory"><div class="wx-advisory-icon">⏸️</div><div class="wx-advisory-text"><strong style="color:#d4a843">Skip watering most plants today</strong>0.79" rain recently. Skip next cycle for citrus, herbs, peppers. Still check blueberry and new plants.</div></div><div class="weather-forecast"><div class="wx-day today-fc"><div class="wx-day-name">Today</div><div class="wx-day-icon">☁️</div><div class="wx-day-hi">85°</div><div class="wx-day-pop">6%</div></div><div class="wx-day"><div class="wx-day-name">Sat</div><div class="wx-day-icon">☁️</div><div class="wx-day-hi">86°</div><div class="wx-day-pop">34%</div></div><div class="wx-day"><div class="wx-day-name">Sun</div><div class="wx-day-icon">🌧️</div><div class="wx-day-hi">89°</div><div class="wx-day-pop">35%</div></div><div class="wx-day"><div class="wx-day-name">Mon</div><div class="wx-day-icon">☁️</div><div class="wx-day-hi">87°</div><div class="wx-day-pop">18%</div></div><div class="wx-day"><div class="wx-day-name">Tue</div><div class="wx-day-icon">🌧️</div><div class="wx-day-hi">90°</div><div class="wx-day-pop">25%</div></div><button class="wx-refresh" onclick="loadWeather()">↻ Refresh</button></div></div>
 </div>
 
 <!-- GITHUB SYNC BAR -->
 <div class="sync-bar">
   <div class="sync-bar-inner">
-    <input id="token-input" type="password" placeholder="✓ Token saved — just tap Sync, or paste a new one to replace" style="flex:1; padding:8px 12px; border-radius:6px; border:1px solid #333; background:#161b22; color:white; font-size:13px; font-family:'DM Sans',sans-serif; min-width:0;">
+    <input id="token-input" type="password" placeholder="Paste GitHub token (ghp_...) then tap Sync — saved for next time" style="flex:1; padding:8px 12px; border-radius:6px; border:1px solid #333; background:#161b22; color:white; font-size:13px; font-family:'DM Sans',sans-serif; min-width:0;">
     <button class="sync-btn" id="sync-btn" onclick="syncToGitHub()" disabled="">⟳ Syncing…</button>
   </div>
   <div class="sync-bar-inner" style="padding-top:0; padding-bottom:8px;">
@@ -310,6 +334,7 @@
   <button class="tab active" onclick="showPanel('plants')">Your Plants</button>
   <button class="tab" onclick="showPanel('watering')">Watering Schedule</button>
   <button class="tab" onclick="showPanel('fertilizer')">Fertilizer Plan</button>
+  <button class="tab" onclick="showPanel('pruning')">Pruning Guide</button>
   <button class="tab" onclick="showPanel('calendar')">Calendar</button>
   <button class="tab" onclick="showPanel('weekly')">Weekly Rhythm</button>
   <button class="tab" onclick="showPanel('tips')">Pro Tips</button>
@@ -321,7 +346,7 @@
      PLANTS PANEL
 ═══════════════════════════════════════════════════════════ -->
 <div class="panel active" id="panel-plants">
-  <div class="section-label">Your Garden — As of May 27, 2026</div>
+  <div class="section-label">Your Garden — As of May 28, 2026</div>
   <div class="section-title">Plant Profiles &amp; Current Status</div>
 
   <div class="alert-card attn">
@@ -898,6 +923,615 @@
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════
+     PRUNING GUIDE PANEL
+═══════════════════════════════════════════════════════════ -->
+<div class="panel" id="panel-pruning">
+  <div class="section-label">Care Guide — All 12 Plants</div>
+  <div class="section-title">Pruning &amp; Harvesting Guide</div>
+  <div class="alert-card info">
+    <div class="alert-icon">✂️</div>
+    <div>
+      <div class="alert-title">General Rules for Every Plant</div>
+      <div class="alert-body">Always use clean scissors or pruners — wipe with rubbing alcohol between plants. Prune in the morning before heat peaks. Never remove more than ⅓ of any plant at once. When in doubt, leave it alone.</div>
+    </div>
+  </div>
+  <div class="prune-plant-tabs">
+    <button class="prune-ptab active" onclick="showPrunePlant('pink-lemon',this)">🍋 Pink Lemon</button>
+    <button class="prune-ptab" onclick="showPrunePlant('tri-citrus',this)">🌳 Tri-Citrus</button>
+    <button class="prune-ptab" onclick="showPrunePlant('thai-pepper',this)">🌶️ Thai Pepper</button>
+    <button class="prune-ptab" onclick="showPrunePlant('habanero',this)">🔥 Habanero</button>
+    <button class="prune-ptab" onclick="showPrunePlant('ghost-pepper',this)">👻 Ghost Pepper</button>
+    <button class="prune-ptab" onclick="showPrunePlant('jalapeno',this)">🫑 Jalapeño</button>
+    <button class="prune-ptab" onclick="showPrunePlant('blueberry',this)">🫐 Blueberry</button>
+    <button class="prune-ptab" onclick="showPrunePlant('hibiscus',this)">🌺 Hibiscus</button>
+    <button class="prune-ptab" onclick="showPrunePlant('tomato',this)">🍅 Tomato</button>
+    <button class="prune-ptab" onclick="showPrunePlant('sweet-potato',this)">🍠 Sweet Potato</button>
+    <button class="prune-ptab" onclick="showPrunePlant('mango-ginger',this)">🫚 Mango Ginger</button>
+    <button class="prune-ptab" onclick="showPrunePlant('herbs',this)">🌿 Herbs</button>
+  </div>
+  <!-- PINK LEMON -->
+  <div class="prune-plant-panel active" id="prune-pink-lemon">
+    <div class="prune-legend">
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#b85c38"></div> Remove</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#4a7c4a"></div> Keep</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#c8843a"></div> Watch</div>
+    </div>
+    <div class="prune-layout">
+      <div class="prune-svg-wrap">
+        <svg viewBox="0 0 260 380" xmlns="http://www.w3.org/2000/svg">
+          <rect x="80" y="320" width="100" height="48" rx="6" fill="#b5c4a8" opacity="0.4"></rect>
+          <rect x="72" y="314" width="116" height="12" rx="4" fill="#b5c4a8" opacity="0.5"></rect>
+          <rect x="126" y="120" width="8" height="200" rx="4" fill="#6b4c2a"></rect>
+          <ellipse cx="130" cy="165" rx="78" ry="56" fill="#4a7c4a" opacity="0.1" stroke="#4a7c4a" stroke-width="1" stroke-dasharray="4 3"></ellipse>
+          <path d="M130 160 Q100 145 72 138" stroke="#2d4a2d" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M130 160 Q160 145 188 138" stroke="#2d4a2d" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M130 210 Q100 198 74 192" stroke="#2d4a2d" stroke-width="3.5" fill="none" stroke-linecap="round"></path>
+          <path d="M130 210 Q160 198 186 192" stroke="#2d4a2d" stroke-width="3.5" fill="none" stroke-linecap="round"></path>
+          <path d="M130 255 Q106 245 88 240" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <circle cx="68" cy="134" r="9" fill="#d4a843" opacity="0.9"></circle>
+          <circle cx="192" cy="130" r="8" fill="#d4a843" opacity="0.85"></circle>
+          <circle cx="78" cy="188" r="7" fill="#d4a843" opacity="0.8"></circle>
+          <path d="M130 230 Q108 218 95 212" stroke="#888" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="5 3" opacity="0.7"></path>
+          <line x1="87" y1="205" x2="101" y2="219" stroke="#b85c38" stroke-width="2"></line>
+          <line x1="101" y1="205" x2="87" y2="219" stroke="#b85c38" stroke-width="2"></line>
+          <path d="M130 140 L130 80" stroke="#b85c38" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="4 3"></path>
+          <line x1="122" y1="74" x2="138" y2="82" stroke="#b85c38" stroke-width="2"></line>
+          <line x1="138" y1="74" x2="122" y2="82" stroke="#b85c38" stroke-width="2"></line>
+          <text font-size="9" fill="#4a7c4a" x="2" y="132" font-family="sans-serif">fruit — keep!</text>
+          <text font-size="9" fill="#b85c38" x="134" y="72" font-family="sans-serif">water sprout ✂</text>
+          <text font-size="9" fill="#b85c38" x="60" y="206" font-family="sans-serif">crossing ✂</text>
+        </svg>
+      </div>
+      <div class="prune-rules">
+        <div class="prune-rule skip"><div class="prune-rule-icon">⏸️</div><div><div class="prune-rule-title">Mostly hands-off — Week 5 recovery</div><div class="prune-rule-body">This tree is still recovering from waterlogging stress. Major pruning now adds more stress on top of existing stress. Stability is the goal, not shaping.</div></div></div>
+        <div class="prune-rule cut"><div class="prune-rule-icon">✂️</div><div><div class="prune-rule-title">Remove confirmed dead branches only</div><div class="prune-rule-body">If a branch is fully brown, crispy, and snaps instead of bending — remove it. If it bends, it may still be alive. Cut flush, no stubs.</div></div></div>
+        <div class="prune-rule cut"><div class="prune-rule-icon">🌿</div><div><div class="prune-rule-title">Snap off vigorous water sprouts</div><div class="prune-rule-body">Straight vertical shoots growing from the trunk (water sprouts) drain energy from recovery. Snap them off by hand while small.</div></div></div>
+        <div class="prune-rule keep"><div class="prune-rule-icon">🍋</div><div><div class="prune-rule-title">Protect every piece of fruit still on the tree</div><div class="prune-rule-body">Fruit staying on the tree is a good sign. Do not disturb any branch holding fruit. Handle the tree as little as possible.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">📅</div><div><div class="prune-rule-title">Full shaping — wait until after new growth flushes</div><div class="prune-rule-body">Once you see a healthy flush of new leaves (likely 2–4 more weeks), the tree has stabilized and light shaping is appropriate. Until then: dead wood removal only.</div></div></div>
+      </div>
+    </div>
+  </div>
+  <!-- TRI-CITRUS -->
+  <div class="prune-plant-panel" id="prune-tri-citrus">
+    <div class="prune-legend">
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#b85c38"></div> Remove</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#4a7c4a"></div> Keep / fruiting</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#c8843a"></div> Watch</div>
+    </div>
+    <div class="prune-layout">
+      <div class="prune-svg-wrap">
+        <svg viewBox="0 0 260 390" xmlns="http://www.w3.org/2000/svg">
+          <rect x="80" y="330" width="100" height="50" rx="6" fill="#b5c4a8" opacity="0.4"></rect>
+          <rect x="72" y="324" width="116" height="12" rx="4" fill="#b5c4a8" opacity="0.5"></rect>
+          <rect x="126" y="100" width="8" height="230" rx="4" fill="#6b4c2a"></rect>
+          <text font-size="8" fill="#4a7c4a" x="2" y="110" font-family="sans-serif">Meyer lemon</text>
+          <text font-size="8" fill="#4a7c4a" x="2" y="192" font-family="sans-serif">Persian lime</text>
+          <text font-size="8" fill="#888" x="2" y="272" font-family="sans-serif">Valencia orange</text>
+          <path d="M130 120 Q102 108 76 103" stroke="#2d4a2d" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M130 120 Q158 108 184 103" stroke="#2d4a2d" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <circle cx="72" cy="98" r="10" fill="#d4a843" opacity="0.9"></circle>
+          <circle cx="188" cy="98" r="9" fill="#d4a843" opacity="0.85"></circle>
+          <circle cx="60" cy="110" r="7" fill="#d4a843" opacity="0.8"></circle>
+          <path d="M130 198 Q104 186 80 182" stroke="#2d4a2d" stroke-width="3.5" fill="none" stroke-linecap="round"></path>
+          <path d="M130 198 Q156 186 180 182" stroke="#2d4a2d" stroke-width="3.5" fill="none" stroke-linecap="round"></path>
+          <circle cx="76" cy="178" r="7" fill="#639922" opacity="0.85"></circle>
+          <circle cx="184" cy="178" r="6" fill="#639922" opacity="0.85"></circle>
+          <path d="M130 268 Q108 258 90 254" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M130 268 Q152 258 170 254" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M130 155 Q148 140 162 132" stroke="#888" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="5 3" opacity="0.7"></path>
+          <line x1="154" y1="126" x2="168" y2="138" stroke="#b85c38" stroke-width="2"></line>
+          <line x1="168" y1="126" x2="154" y2="138" stroke="#b85c38" stroke-width="2"></line>
+          <path d="M130 310 Q118 295 110 282" stroke="#b85c38" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="4 3"></path>
+          <line x1="102" y1="276" x2="116" y2="288" stroke="#b85c38" stroke-width="2"></line>
+          <line x1="116" y1="276" x2="102" y2="288" stroke="#b85c38" stroke-width="2"></line>
+          <text font-size="9" fill="#b85c38" x="55" y="272" font-family="sans-serif">rootstock sucker ✂</text>
+          <text font-size="9" fill="#b85c38" x="162" y="126" font-family="sans-serif">crossing ✂</text>
+          <text font-size="9" fill="#d4a843" x="192" y="96" font-family="sans-serif">Meyer ✓</text>
+          <text font-size="9" fill="#639922" x="186" y="176" font-family="sans-serif">lime ✓</text>
+        </svg>
+      </div>
+      <div class="prune-rules">
+        <div class="prune-rule cut"><div class="prune-rule-icon">🌱</div><div><div class="prune-rule-title">Remove rootstock suckers immediately</div><div class="prune-rule-body">Any shoot growing from below the graft union (the visible bump near the base of the trunk) is rootstock — it will take over the tree if left. Different-looking leaves, often shinier with more thorns. Snap or cut flush at the origin.</div></div></div>
+        <div class="prune-rule cut"><div class="prune-rule-icon">✂️</div><div><div class="prune-rule-title">Remove crossing or rubbing branches</div><div class="prune-rule-body">Any branch crossing through the center and rubbing against another creates wound entry points for disease. Remove the smaller or weaker of the two crossing branches.</div></div></div>
+        <div class="prune-rule keep"><div class="prune-rule-icon">🍋</div><div><div class="prune-rule-title">Protect all three graft sections and their fruit</div><div class="prune-rule-body">Meyer lemon is past strawberry size. Persian lime developing. Valencia orange has no fruit but needs airflow. Never remove main framework branches of any graft section.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">💧</div><div><div class="prune-rule-title">Confirm drainage hole is clear every deep watering</div><div class="prune-rule-body">Cement pots accumulate mineral deposits over the drain hole. After each deep watering, check that water flows freely. Poke with a bamboo skewer if flow seems slow.</div></div></div>
+        <div class="prune-rule skip"><div class="prune-rule-icon">🚫</div><div><div class="prune-rule-title">No heavy pruning while actively fruiting</div><div class="prune-rule-body">Major branch removal during fruit development causes fruit drop. Save structural pruning for after harvest — late winter (January–February) is ideal for Zone 9b citrus.</div></div></div>
+      </div>
+    </div>
+  </div>
+  <!-- THAI PEPPER -->
+  <div class="prune-plant-panel" id="prune-thai-pepper">
+    <div class="prune-legend">
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#b85c38"></div> Harvest / remove</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#4a7c4a"></div> Keep</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#c8843a"></div> Watch</div>
+    </div>
+    <div class="prune-layout">
+      <div class="prune-svg-wrap">
+        <svg viewBox="0 0 260 380" xmlns="http://www.w3.org/2000/svg">
+          <rect x="80" y="320" width="100" height="48" rx="6" fill="#888" opacity="0.25"></rect>
+          <rect x="72" y="314" width="116" height="12" rx="4" fill="#888" opacity="0.3"></rect>
+          <rect x="126" y="120" width="6" height="200" rx="3" fill="#4a7c4a"></rect>
+          <path d="M129 148 Q105 136 80 130" stroke="#2d4a2d" stroke-width="4.5" fill="none" stroke-linecap="round"></path>
+          <path d="M129 148 Q153 136 178 130" stroke="#2d4a2d" stroke-width="4.5" fill="none" stroke-linecap="round"></path>
+          <path d="M80 130 Q62 118 48 110" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M80 130 Q66 146 56 158" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M178 130 Q194 118 208 110" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M178 130 Q192 146 200 158" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M129 195 Q108 183 88 178" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M129 195 Q150 183 170 178" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M129 245 Q112 236 96 231" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M129 245 Q146 236 162 231" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <ellipse cx="44" cy="105" rx="5" ry="13" fill="#b85c38" transform="rotate(-15 44 105)"></ellipse>
+          <ellipse cx="206" cy="105" rx="5" ry="13" fill="#b85c38" transform="rotate(15 206 105)"></ellipse>
+          <ellipse cx="52" cy="162" rx="5" ry="12" fill="#b85c38" transform="rotate(10 52 162)"></ellipse>
+          <ellipse cx="198" cy="162" rx="5" ry="12" fill="#b85c38" transform="rotate(-10 198 162)"></ellipse>
+          <ellipse cx="84" cy="174" rx="4" ry="11" fill="#b85c38"></ellipse>
+          <ellipse cx="168" cy="174" rx="4" ry="11" fill="#4a7c4a" opacity="0.9"></ellipse>
+          <ellipse cx="92" cy="227" rx="4" ry="10" fill="#4a7c4a" opacity="0.85"></ellipse>
+          <ellipse cx="164" cy="228" rx="4" ry="10" fill="#4a7c4a" opacity="0.85"></ellipse>
+          <ellipse cx="129" cy="270" rx="4" ry="10" fill="#4a7c4a" opacity="0.8"></ellipse>
+          <circle cx="129" cy="165" r="4" fill="#c8843a" opacity="0.9"></circle>
+          <text font-size="9" fill="#b85c38" x="2" y="100" font-family="sans-serif">harvest ✂</text>
+          <text font-size="9" fill="#b85c38" x="208" y="100" font-family="sans-serif">harvest ✂</text>
+          <text font-size="9" fill="#c8843a" x="133" y="162" font-family="sans-serif">dead flower — flick</text>
+          <text font-size="9" fill="#4a7c4a" x="170" y="170" font-family="sans-serif">keep</text>
+        </svg>
+      </div>
+      <div class="prune-rules">
+        <div class="prune-rule cut"><div class="prune-rule-icon">🌶️</div><div><div class="prune-rule-title">Harvest ALL red peppers every 2–3 days</div><div class="prune-rule-body">With 75–100 peppers on the plant, ripe ones must come off regularly. Leaving ripe peppers signals the plant to stop producing. Twist upward and snap, or snip with scissors. Never pull downward — you'll snap branches.</div></div></div>
+        <div class="prune-rule cut"><div class="prune-rule-icon">🌸</div><div><div class="prune-rule-title">Flick off spent/dried flowers</div><div class="prune-rule-body">Any brown shriveled flower that did not set a pepper — flick or pinch it off. Small brown nubs at branch tips. Removing them keeps energy flowing to developing fruit.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">✂️</div><div><div class="prune-rule-title">Light interior thinning only if airflow is blocked</div><div class="prune-rule-body">If the center is so dense that no air moves through, remove one or two crossing interior stems. Otherwise leave the plant alone — it's at peak production and doesn't need pruning.</div></div></div>
+        <div class="prune-rule keep"><div class="prune-rule-icon">🌿</div><div><div class="prune-rule-title">Never remove healthy green branches</div><div class="prune-rule-body">Every leafy branch feeds the developing peppers. Only remove clearly dead or broken branches. No aggressive shaping during peak production.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">☀️</div><div><div class="prune-rule-title">Watch for flower drop — heat stress signal</div><div class="prune-rule-body">If flowers start dropping before setting peppers, that's heat stress. Move the pot to morning sun / afternoon shade. Dark plastic pots hit 120°F+ root temps in peak Tampa heat.</div></div></div>
+      </div>
+    </div>
+  </div>
+  <!-- HABANERO -->
+  <div class="prune-plant-panel" id="prune-habanero">
+    <div class="prune-legend">
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#b85c38"></div> Remove</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#4a7c4a"></div> Keep / protect</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#c8843a"></div> Watch</div>
+    </div>
+    <div class="prune-layout">
+      <div class="prune-svg-wrap">
+        <svg viewBox="0 0 260 380" xmlns="http://www.w3.org/2000/svg">
+          <rect x="80" y="320" width="100" height="48" rx="6" fill="#888" opacity="0.25"></rect>
+          <rect x="72" y="314" width="116" height="12" rx="4" fill="#888" opacity="0.3"></rect>
+          <rect x="126" y="120" width="6" height="200" rx="3" fill="#4a7c4a"></rect>
+          <path d="M129 148 Q104 136 78 130" stroke="#2d4a2d" stroke-width="4.5" fill="none" stroke-linecap="round"></path>
+          <path d="M129 148 Q154 136 180 130" stroke="#2d4a2d" stroke-width="4.5" fill="none" stroke-linecap="round"></path>
+          <path d="M78 130 Q60 118 46 110" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M78 130 Q64 146 54 158" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M180 130 Q196 118 210 110" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M180 130 Q194 148 202 160" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M129 200 Q108 188 88 183" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M129 200 Q150 188 170 183" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M129 250 Q112 240 96 236" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M129 250 Q146 240 162 236" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <ellipse cx="42" cy="105" rx="9" ry="11" fill="#4a7c4a" opacity="0.85"></ellipse>
+          <ellipse cx="208" cy="105" rx="9" ry="11" fill="#4a7c4a" opacity="0.85"></ellipse>
+          <ellipse cx="50" cy="162" rx="8" ry="10" fill="#4a7c4a" opacity="0.85"></ellipse>
+          <ellipse cx="200" cy="162" rx="8" ry="10" fill="#4a7c4a" opacity="0.85"></ellipse>
+          <ellipse cx="84" cy="179" rx="8" ry="10" fill="#4a7c4a" opacity="0.8"></ellipse>
+          <ellipse cx="172" cy="179" rx="8" ry="10" fill="#4a7c4a" opacity="0.8"></ellipse>
+          <ellipse cx="92" cy="232" rx="7" ry="9" fill="#4a7c4a" opacity="0.75"></ellipse>
+          <ellipse cx="162" cy="232" rx="7" ry="9" fill="#4a7c4a" opacity="0.75"></ellipse>
+          <circle cx="129" cy="155" r="5" fill="#d4a843" opacity="0.9"></circle>
+          <circle cx="129" cy="215" r="4" fill="#d4a843" opacity="0.85"></circle>
+          <path d="M129 300 Q114 290 102 285" stroke="#888" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="4 3" opacity="0.6"></path>
+          <line x1="95" y1="278" x2="108" y2="291" stroke="#b85c38" stroke-width="2"></line>
+          <line x1="108" y1="278" x2="95" y2="291" stroke="#b85c38" stroke-width="2"></line>
+          <text font-size="9" fill="#4a7c4a" x="2" y="100" font-family="sans-serif">developing — keep!</text>
+          <text font-size="9" fill="#d4a843" x="133" y="152" font-family="sans-serif">flower — keep!</text>
+          <text font-size="9" fill="#b85c38" x="56" y="278" font-family="sans-serif">dead branch ✂</text>
+        </svg>
+      </div>
+      <div class="prune-rules">
+        <div class="prune-rule keep"><div class="prune-rule-icon">🌶️</div><div><div class="prune-rule-title">Protect every developing pepper — all green now</div><div class="prune-rule-body">Habaneros take 80–100+ days from flower to ripe orange/red. Every green pepper on this plant is precious. Handle branches carefully — don't knock developing fruit off.</div></div></div>
+        <div class="prune-rule keep"><div class="prune-rule-icon">🌸</div><div><div class="prune-rule-title">Leave all active yellow/white flowers alone</div><div class="prune-rule-body">Each active flower is a future pepper. Only remove flowers that are fully brown and shriveled with no pepper forming below them. When in doubt, leave it.</div></div></div>
+        <div class="prune-rule cut"><div class="prune-rule-icon">🪵</div><div><div class="prune-rule-title">Remove only confirmed dead or broken branches</div><div class="prune-rule-body">If a branch is clearly brown, brittle, and snaps — remove it. Same for any mechanically broken branch. Everything green and alive stays. No pruning for shape at this stage.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">⏳</div><div><div class="prune-rule-title">Habaneros color up slowly — patience required</div><div class="prune-rule-body">Green → orange → red. Don't harvest green unless needed. Wait for full color change and a slight give when squeezed gently. Wear gloves at harvest — oils are extremely potent.</div></div></div>
+      </div>
+    </div>
+  </div>
+  <!-- GHOST PEPPER -->
+  <div class="prune-plant-panel" id="prune-ghost-pepper">
+    <div class="prune-legend">
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#b85c38"></div> Remove if appears</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#4a7c4a"></div> Keep / encourage</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#c8843a"></div> Watch</div>
+    </div>
+    <div class="prune-layout">
+      <div class="prune-svg-wrap">
+        <svg viewBox="0 0 260 380" xmlns="http://www.w3.org/2000/svg">
+          <rect x="80" y="320" width="100" height="48" rx="6" fill="#888" opacity="0.25"></rect>
+          <rect x="72" y="314" width="116" height="12" rx="4" fill="#888" opacity="0.3"></rect>
+          <rect x="127" y="200" width="6" height="120" rx="3" fill="#4a7c4a"></rect>
+          <path d="M130 220 Q112 212 98 208" stroke="#4a7c4a" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M130 220 Q148 212 162 208" stroke="#4a7c4a" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M130 255 Q114 246 100 242" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M130 255 Q146 246 160 242" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <ellipse cx="94" cy="205" rx="12" ry="7" fill="#4a7c4a" opacity="0.7" transform="rotate(-15 94 205)"></ellipse>
+          <ellipse cx="166" cy="205" rx="12" ry="7" fill="#4a7c4a" opacity="0.7" transform="rotate(15 166 205)"></ellipse>
+          <ellipse cx="96" cy="239" rx="10" ry="6" fill="#2d4a2d" opacity="0.65" transform="rotate(-10 96 239)"></ellipse>
+          <ellipse cx="164" cy="239" rx="10" ry="6" fill="#2d4a2d" opacity="0.65" transform="rotate(10 164 239)"></ellipse>
+          <line x1="60" y1="200" x2="60" y2="320" stroke="#c8843a" stroke-width="1.5" stroke-dasharray="3 3"></line>
+          <line x1="54" y1="200" x2="66" y2="200" stroke="#c8843a" stroke-width="1.5"></line>
+          <line x1="54" y1="320" x2="66" y2="320" stroke="#c8843a" stroke-width="1.5"></line>
+          <text font-size="8" fill="#c8843a" x="28" y="265" font-family="sans-serif">~8"</text>
+          <circle cx="130" cy="196" r="5" fill="#b85c38" opacity="0.7"></circle>
+          <text font-size="9" fill="#b85c38" x="134" y="193" font-family="sans-serif">bud — remove until 12"</text>
+          <text font-size="9" fill="#4a7c4a" x="168" y="202" font-family="sans-serif">new leaves ✓</text>
+          <text font-size="9" fill="#c8843a" x="2" y="175" font-family="sans-serif">Day 6 — still settling</text>
+        </svg>
+      </div>
+      <div class="prune-rules">
+        <div class="prune-rule skip"><div class="prune-rule-icon">⏸️</div><div><div class="prune-rule-title">No pruning at all — Day 6 post-plant</div><div class="prune-rule-body">Ghost pepper was planted May 23. At 8 inches and only 6 days in, this plant needs zero pruning. Your only job: consistent moisture, afternoon shade protection, and letting it establish roots undisturbed.</div></div></div>
+        <div class="prune-rule cut"><div class="prune-rule-icon">🌸</div><div><div class="prune-rule-title">Remove any premature flower buds now</div><div class="prune-rule-body">If a bud appears before the plant reaches 12 inches, pinch it off. A small plant that sets fruit too early will stunt its own growth. Let it build structure first. First ripe peppers expected late August–September.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">📅</div><div><div class="prune-rule-title">First real pruning: tip-pinch at 12 inches (~late June)</div><div class="prune-rule-body">Once the plant reaches 12 inches and is established, pinch the very top growing tip to encourage branching. This significantly increases ghost pepper yield. Until then — hands off completely.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">🌡️</div><div><div class="prune-rule-title">Move to full sun after June 1</div><div class="prune-rule-body">3 more days of afternoon shade protection while roots establish. After that, move to full sun. Ghost peppers love Tampa heat once rooted in — they actually thrive in conditions that stress other peppers.</div></div></div>
+      </div>
+    </div>
+  </div>
+  <!-- JALAPEÑO -->
+  <div class="prune-plant-panel" id="prune-jalapeno">
+    <div class="prune-legend">
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#b85c38"></div> Remove if appears</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#4a7c4a"></div> Keep</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#c8843a"></div> Future action</div>
+    </div>
+    <div class="prune-layout">
+      <div class="prune-svg-wrap">
+        <svg viewBox="0 0 260 380" xmlns="http://www.w3.org/2000/svg">
+          <rect x="80" y="320" width="100" height="48" rx="6" fill="#888" opacity="0.25"></rect>
+          <rect x="72" y="314" width="116" height="12" rx="4" fill="#888" opacity="0.3"></rect>
+          <rect x="127" y="195" width="6" height="125" rx="3" fill="#4a7c4a"></rect>
+          <path d="M130 215 Q110 205 94 200" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M130 215 Q150 205 166 200" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M130 248 Q112 240 98 236" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M130 248 Q148 240 162 236" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <ellipse cx="90" cy="197" rx="13" ry="7" fill="#4a7c4a" opacity="0.7" transform="rotate(-12 90 197)"></ellipse>
+          <ellipse cx="170" cy="197" rx="13" ry="7" fill="#4a7c4a" opacity="0.7" transform="rotate(12 170 197)"></ellipse>
+          <ellipse cx="94" cy="233" rx="11" ry="6" fill="#2d4a2d" opacity="0.65" transform="rotate(-8 94 233)"></ellipse>
+          <ellipse cx="166" cy="233" rx="11" ry="6" fill="#2d4a2d" opacity="0.65" transform="rotate(8 166 233)"></ellipse>
+          <path d="M90 197 Q85 205 82 210" stroke="#c8843a" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="3 2"></path>
+          <text font-size="8" fill="#c8843a" x="48" y="214" font-family="sans-serif">slight droop — normal</text>
+          <circle cx="130" cy="192" r="4" fill="#c8843a" opacity="0.6"></circle>
+          <text font-size="8" fill="#c8843a" x="133" y="189" font-family="sans-serif">pinch here at 12"</text>
+          <text font-size="9" fill="#4a7c4a" x="170" y="194" font-family="sans-serif">keep — new</text>
+          <text font-size="9" fill="#c8843a" x="86" y="300" font-family="sans-serif">Day 5 — establishing</text>
+        </svg>
+      </div>
+      <div class="prune-rules">
+        <div class="prune-rule skip"><div class="prune-rule-icon">⏸️</div><div><div class="prune-rule-title">No pruning yet — Day 5 post-transplant</div><div class="prune-rule-body">Jalapeño was planted May 24 and is only 5 days in. Any transplant droop you see is normal and should resolve in 2–3 more days. Do not prune, pinch, or stress this plant at all right now.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">✂️</div><div><div class="prune-rule-title">Tip-pinch at 12 inches to encourage branching</div><div class="prune-rule-body">In about 2–3 weeks when the plant hits 12 inches, pinch the top growing tip. This is the single most impactful pruning move for jalapeño yield — it causes the plant to branch into a bushy, multi-stem shape instead of growing tall and lanky.</div></div></div>
+        <div class="prune-rule cut"><div class="prune-rule-icon">🌸</div><div><div class="prune-rule-title">Remove early flower buds until 12 inches tall</div><div class="prune-rule-body">If flowers appear before the plant has good framework, pinch them off. Let it grow structure first. Jalapeños are fast producers (70–85 days) — letting it mature slightly before fruiting produces a much more productive plant overall.</div></div></div>
+        <div class="prune-rule keep"><div class="prune-rule-icon">🌿</div><div><div class="prune-rule-title">All leaves stay — even sad-looking ones</div><div class="prune-rule-body">If leaves wilt in afternoon heat but recover by morning, they're doing their job. Only remove fully brown, crispy, dead leaves. Even stressed leaves are photosynthesizing and helping the plant establish.</div></div></div>
+      </div>
+    </div>
+  </div>
+  <!-- BLUEBERRY -->
+  <div class="prune-plant-panel" id="prune-blueberry">
+    <div class="prune-legend">
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#6b3a6b"></div> Harvest</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#4a7c4a"></div> Keep / fruiting</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#b85c38"></div> Remove after harvest</div>
+    </div>
+    <div class="prune-layout">
+      <div class="prune-svg-wrap">
+        <svg viewBox="0 0 260 390" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="20" width="220" height="290" rx="8" fill="none" stroke="#6a9eb5" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.5"></rect>
+          <text font-size="8" fill="#6a9eb5" x="28" y="33" font-family="sans-serif">pool cage</text>
+          <rect x="78" y="318" width="104" height="52" rx="6" fill="#888" opacity="0.3"></rect>
+          <rect x="70" y="312" width="120" height="12" rx="4" fill="#888" opacity="0.35"></rect>
+          <rect x="80" y="325" width="14" height="8" rx="2" fill="#888" opacity="0.5"></rect>
+          <rect x="166" y="325" width="14" height="8" rx="2" fill="#888" opacity="0.5"></rect>
+          <text font-size="8" fill="#888" x="108" y="352" font-family="sans-serif">elevated on bricks</text>
+          <path d="M130 312 L122 200" stroke="#4a332a" stroke-width="5" fill="none" stroke-linecap="round"></path>
+          <path d="M130 312 L138 195" stroke="#4a332a" stroke-width="5" fill="none" stroke-linecap="round"></path>
+          <path d="M130 312 L108 210" stroke="#4a332a" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M130 312 L152 210" stroke="#4a332a" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M130 312 L96 220" stroke="#888" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="5 3" opacity="0.6"></path>
+          <line x1="88" y1="213" x2="102" y2="225" stroke="#b85c38" stroke-width="2"></line>
+          <line x1="102" y1="213" x2="88" y2="225" stroke="#b85c38" stroke-width="2"></line>
+          <path d="M122 200 Q104 185 88 178" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M122 200 Q118 180 115 162" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M138 195 Q154 180 168 174" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M138 195 Q142 175 144 158" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M108 210 Q88 195 72 188" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M152 210 Q170 195 184 188" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <circle cx="84" cy="174" r="7" fill="#4a3570" opacity="0.9"></circle>
+          <circle cx="74" cy="165" r="6" fill="#4a3570" opacity="0.85"></circle>
+          <circle cx="92" cy="165" r="5" fill="#4a3570" opacity="0.9"></circle>
+          <circle cx="168" cy="170" r="7" fill="#4a3570" opacity="0.9"></circle>
+          <circle cx="178" cy="161" r="6" fill="#4a3570" opacity="0.85"></circle>
+          <circle cx="112" cy="158" r="5" fill="#639922" opacity="0.8"></circle>
+          <circle cx="118" cy="148" r="4" fill="#639922" opacity="0.75"></circle>
+          <circle cx="142" cy="154" r="5" fill="#639922" opacity="0.8"></circle>
+          <circle cx="148" cy="144" r="4" fill="#4a7c4a" opacity="0.75"></circle>
+          <text font-size="9" fill="#4a3570" x="38" y="168" font-family="sans-serif">ripe — harvest ✂</text>
+          <text font-size="9" fill="#4a7c4a" x="150" y="144" font-family="sans-serif">not ready</text>
+          <text font-size="9" fill="#b85c38" x="40" y="212" font-family="sans-serif">old cane — remove post-harvest</text>
+        </svg>
+      </div>
+      <div class="prune-rules">
+        <div class="prune-rule cut"><div class="prune-rule-icon">🫐</div><div><div class="prune-rule-title">Harvest deep blue/purple berries — every 2 days</div><div class="prune-rule-body">Pick berries that are fully deep blue-purple and yield slightly when gently squeezed. Leave anything green, pink, or firm. Harvest every 2 days — ripe berries left on the bush lose flavor and invite pests even in the pool cage.</div></div></div>
+        <div class="prune-rule skip"><div class="prune-rule-icon">⏸️</div><div><div class="prune-rule-title">No structural pruning while actively fruiting</div><div class="prune-rule-body">Do not remove canes, shape the bush, or do any cutting beyond harvesting fruit right now. All pruning waits until after the last berry is picked.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">✂️</div><div><div class="prune-rule-title">Post-harvest: remove 1–2 oldest canes at the base</div><div class="prune-rule-body">After all fruit is harvested, remove the oldest, darkest, most woody canes at ground level. This encourages vigorous new fruiting canes. Never remove more than ⅓ of total canes. Do this in June–July after fruiting ends.</div></div></div>
+        <div class="prune-rule keep"><div class="prune-rule-icon">🏠</div><div><div class="prune-rule-title">Check pool cage screen perimeter monthly</div><div class="prune-rule-body">Walk the perimeter monthly for tears, gaps, or loose sections at the bottom — roof rats can squeeze through surprisingly small openings. The cage is your best pest control tool for the blueberry.</div></div></div>
+      </div>
+    </div>
+  </div>
+  <!-- HIBISCUS -->
+  <div class="prune-plant-panel" id="prune-hibiscus">
+    <div class="prune-legend">
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#b85c38"></div> Deadhead / remove</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#4a7c4a"></div> Keep / flowers</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#c8843a"></div> Shape / watch</div>
+    </div>
+    <div class="prune-layout">
+      <div class="prune-svg-wrap">
+        <svg viewBox="0 0 260 400" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="16" width="220" height="290" rx="8" fill="none" stroke="#6a9eb5" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.45"></rect>
+          <text font-size="8" fill="#6a9eb5" x="28" y="29" font-family="sans-serif">pool cage</text>
+          <rect x="78" y="330" width="104" height="52" rx="6" fill="#888" opacity="0.3"></rect>
+          <rect x="70" y="324" width="120" height="12" rx="4" fill="#888" opacity="0.35"></rect>
+          <path d="M125 324 Q122 280 120 240" stroke="#6b4c2a" stroke-width="5" fill="none" stroke-linecap="round"></path>
+          <path d="M130 324 Q130 280 130 240" stroke="#6b4c2a" stroke-width="5" fill="none" stroke-linecap="round"></path>
+          <path d="M135 324 Q138 280 140 240" stroke="#6b4c2a" stroke-width="5" fill="none" stroke-linecap="round"></path>
+          <path d="M120 240 Q94 220 70 210" stroke="#2d4a2d" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M130 240 Q130 215 130 185" stroke="#2d4a2d" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M140 240 Q166 220 190 210" stroke="#2d4a2d" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M70 210 Q54 195 44 182" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M70 210 Q62 228 58 242" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M190 210 Q204 195 212 183" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M190 210 Q198 228 200 244" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M130 185 Q114 170 102 160" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M130 185 Q146 170 158 160" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <circle cx="40" cy="175" r="14" fill="#b85c38" opacity="0.25"></circle>
+          <circle cx="40" cy="175" r="8" fill="#b85c38" opacity="0.6"></circle>
+          <circle cx="40" cy="175" r="3" fill="#d4a843"></circle>
+          <circle cx="210" cy="177" r="14" fill="#6b3a6b" opacity="0.25"></circle>
+          <circle cx="210" cy="177" r="8" fill="#6b3a6b" opacity="0.6"></circle>
+          <circle cx="210" cy="177" r="3" fill="#d4a843"></circle>
+          <circle cx="98" cy="152" r="12" fill="#b85c38" opacity="0.2"></circle>
+          <circle cx="98" cy="152" r="7" fill="#b85c38" opacity="0.5"></circle>
+          <circle cx="98" cy="152" r="3" fill="#d4a843"></circle>
+          <circle cx="160" cy="156" r="5" fill="#888" opacity="0.6"></circle>
+          <line x1="153" y1="149" x2="167" y2="163" stroke="#b85c38" stroke-width="1.5"></line>
+          <line x1="167" y1="149" x2="153" y2="163" stroke="#b85c38" stroke-width="1.5"></line>
+          <path d="M120 240 Q138 228 148 218" stroke="#888" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="4 3" opacity="0.5"></path>
+          <line x1="140" y1="212" x2="154" y2="224" stroke="#b85c38" stroke-width="1.5"></line>
+          <line x1="154" y1="212" x2="140" y2="224" stroke="#b85c38" stroke-width="1.5"></line>
+          <text font-size="9" fill="#b85c38" x="2" y="162" font-family="sans-serif">deadhead ✂</text>
+          <text font-size="9" fill="#4a7c4a" x="2" y="176" font-family="sans-serif">blooming — keep!</text>
+          <text font-size="9" fill="#b85c38" x="148" y="211" font-family="sans-serif">crossing ✂</text>
+          <text font-size="9" fill="#c8843a" x="56" y="295" font-family="sans-serif">watch height — may shade blueberry</text>
+        </svg>
+      </div>
+      <div class="prune-rules">
+        <div class="prune-rule cut"><div class="prune-rule-icon">🌺</div><div><div class="prune-rule-title">Deadhead spent flowers daily</div><div class="prune-rule-body">Hibiscus flowers last only one day. Once a flower shrivels, snap off the remaining stub at the base — this triggers the next bud. Deadheading consistently is the key to continuous flowering through summer.</div></div></div>
+        <div class="prune-rule cut"><div class="prune-rule-icon">✂️</div><div><div class="prune-rule-title">Remove crossing or inward-growing branches</div><div class="prune-rule-body">Any branch crossing through the center and rubbing against another — remove the weaker one. Good airflow through the center prevents fungal issues in Tampa's humid summers.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">📏</div><div><div class="prune-rule-title">Light tip-pinching now — hard prune in late winter</div><div class="prune-rule-body">Light tip-pinching after spent flowers to direct growth is fine. Major cutting back to reshape should wait until January–February. Pruning heavily now removes current flower buds and delays the next bloom cycle.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">🫐</div><div><div class="prune-rule-title">Monitor height vs. blueberry by late summer</div><div class="prune-rule-body">Expected to reach 4–6 feet by late summer. If it begins shading the blueberry, redirect or lightly trim branches reaching in that direction — gradually rather than all at once.</div></div></div>
+        <div class="prune-rule keep"><div class="prune-rule-icon">🐛</div><div><div class="prune-rule-title">Check leaf undersides for pests every 2 weeks</div><div class="prune-rule-body">Hibiscus sawfly, aphids, and whiteflies all cluster on new growth and leaf undersides. Treat with insecticidal soap or neem oil at first sign — don't let populations build in Tampa heat.</div></div></div>
+      </div>
+    </div>
+  </div>
+  <!-- TOMATO -->
+  <div class="prune-plant-panel" id="prune-tomato">
+    <div class="prune-legend">
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#b85c38"></div> Remove / sucker</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#4a7c4a"></div> Keep / fruit</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#c8843a"></div> Harvest / optional</div>
+    </div>
+    <div class="prune-layout">
+      <div class="prune-svg-wrap">
+        <svg viewBox="0 0 260 410" xmlns="http://www.w3.org/2000/svg">
+          <line x1="90" y1="50" x2="90" y2="340" stroke="#888" stroke-width="1" stroke-dasharray="4 3" opacity="0.4"></line>
+          <line x1="170" y1="50" x2="170" y2="340" stroke="#888" stroke-width="1" stroke-dasharray="4 3" opacity="0.4"></line>
+          <line x1="85" y1="120" x2="175" y2="120" stroke="#888" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"></line>
+          <line x1="85" y1="200" x2="175" y2="200" stroke="#888" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"></line>
+          <text font-size="8" fill="#888" x="172" y="45" font-family="sans-serif">cage</text>
+          <rect x="78" y="350" width="104" height="50" rx="6" fill="#888" opacity="0.25"></rect>
+          <rect x="70" y="344" width="120" height="12" rx="4" fill="#888" opacity="0.3"></rect>
+          <rect x="127" y="50" width="6" height="300" rx="3" fill="#2d4a2d"></rect>
+          <path d="M130 115 Q102 103 76 96" stroke="#2d4a2d" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M130 115 Q158 103 184 96" stroke="#2d4a2d" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M130 185 Q104 173 80 167" stroke="#2d4a2d" stroke-width="3.5" fill="none" stroke-linecap="round"></path>
+          <path d="M130 185 Q156 173 180 167" stroke="#2d4a2d" stroke-width="3.5" fill="none" stroke-linecap="round"></path>
+          <path d="M130 255 Q108 243 88 238" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M130 255 Q152 243 172 238" stroke="#2d4a2d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M129 113 Q110 100 100 93" stroke="#b85c38" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="5 3"></path>
+          <line x1="93" y1="87" x2="107" y2="99" stroke="#b85c38" stroke-width="2"></line>
+          <line x1="107" y1="87" x2="93" y2="99" stroke="#b85c38" stroke-width="2"></line>
+          <path d="M131 183 Q150 171 160 164" stroke="#b85c38" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="5 3"></path>
+          <line x1="153" y1="157" x2="167" y2="170" stroke="#b85c38" stroke-width="2"></line>
+          <line x1="167" y1="157" x2="153" y2="170" stroke="#b85c38" stroke-width="2"></line>
+          <circle cx="72" cy="91" r="7" fill="#639922" opacity="0.8"></circle>
+          <circle cx="60" cy="84" r="5" fill="#639922" opacity="0.75"></circle>
+          <circle cx="80" cy="82" r="5" fill="#639922" opacity="0.75"></circle>
+          <circle cx="182" cy="91" r="7" fill="#639922" opacity="0.8"></circle>
+          <circle cx="194" cy="84" r="5" fill="#639922" opacity="0.75"></circle>
+          <circle cx="78" cy="162" r="8" fill="#c8843a" opacity="0.85"></circle>
+          <circle cx="66" cy="155" r="6" fill="#c8843a" opacity="0.8"></circle>
+          <circle cx="178" cy="162" r="8" fill="#c8843a" opacity="0.85"></circle>
+          <circle cx="180" cy="173" r="7" fill="#b85c38" opacity="0.9"></circle>
+          <ellipse cx="130" cy="310" rx="18" ry="10" fill="#b85c38" opacity="0.2" transform="rotate(-25 130 310)"></ellipse>
+          <ellipse cx="130" cy="325" rx="16" ry="9" fill="#b85c38" opacity="0.2" transform="rotate(20 130 325)"></ellipse>
+          <line x1="108" y1="58" x2="152" y2="58" stroke="#c8843a" stroke-width="1.5" stroke-dasharray="4 3"></line>
+          <text font-size="9" fill="#b85c38" x="62" y="85" font-family="sans-serif">sucker ✂</text>
+          <text font-size="9" fill="#4a7c4a" x="185" y="88" font-family="sans-serif">fruit — keep</text>
+          <text font-size="9" fill="#c8843a" x="148" y="152" font-family="sans-serif">blush — harvest!</text>
+          <text font-size="9" fill="#b85c38" x="182" y="172" font-family="sans-serif">ripe — harvest!</text>
+          <text font-size="9" fill="#b85c38" x="2" y="318" font-family="sans-serif">yellow leaves ✂</text>
+          <text font-size="9" fill="#c8843a" x="154" y="56" font-family="sans-serif">top here?</text>
+        </svg>
+      </div>
+      <div class="prune-rules">
+        <div class="prune-rule cut"><div class="prune-rule-icon">🌿</div><div><div class="prune-rule-title">Remove suckers — most important task today</div><div class="prune-rule-body">Suckers grow in the V-shaped armpit between the main stem and a branch. Pinch small ones (under 2") by hand. Snip larger ones with clean scissors. At 3–4 feet your plant almost certainly has several. Removing them redirects energy to ripening the 40–50 fruit already setting.</div></div></div>
+        <div class="prune-rule cut"><div class="prune-rule-icon">🍂</div><div><div class="prune-rule-title">Strip all yellow and lower leaves</div><div class="prune-rule-body">Any leaves touching soil, yellowing, or showing brown spots come off. These cause soil splash (fungal disease entry) and pest harboring. Cut flush at the stem — no stubs. Strip up to the first fruit cluster from the bottom.</div></div></div>
+        <div class="prune-rule cut"><div class="prune-rule-icon">🍅</div><div><div class="prune-rule-title">Harvest at blush stage — beat the squirrels</div><div class="prune-rule-body">Pick clusters when just starting to turn orange-red (blush). Ripen indoors — fully ripe in 1–2 days. This beats squirrels and roof rats who target fully red fruit. Do not wait for full red color on the plant.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">📏</div><div><div class="prune-rule-title">Consider topping to stop upward growth</div><div class="prune-rule-body">At 3–4 feet in the cage, pinching the top growing tip redirects energy from growing taller into ripening existing fruit. Especially useful now with Tampa heat intensifying — focus the plant on maturing what it has.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">🐛</div><div><div class="prune-rule-title">Inspect for hornworms at every check</div><div class="prune-rule-body">Tomato hornworms (large green caterpillars, 3–4 inches) can strip a plant in 48 hours. Look on leaf undersides and stems, especially new upper growth. Pick off by hand. Also watch for aphid clusters on new growth tips.</div></div></div>
+      </div>
+    </div>
+  </div>
+  <!-- SWEET POTATO -->
+  <div class="prune-plant-panel" id="prune-sweet-potato">
+    <div class="prune-legend">
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#c8843a"></div> Redirect sparingly</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#4a7c4a"></div> Keep — vines feed tubers</div>
+    </div>
+    <div class="prune-layout">
+      <div class="prune-svg-wrap">
+        <svg viewBox="0 0 260 390" xmlns="http://www.w3.org/2000/svg">
+          <rect x="68" y="298" width="124" height="70" rx="10" fill="#c8843a" opacity="0.12" stroke="#c8843a" stroke-width="1.5" stroke-dasharray="5 3"></rect>
+          <text font-size="8" fill="#c8843a" x="104" y="342" font-family="sans-serif">30 gal fabric bag</text>
+          <text font-size="8" fill="#888" x="96" y="355" font-family="sans-serif">breathes — dries fast!</text>
+          <path d="M100 298 Q80 270 60 245" stroke="#4a7c4a" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M130 298 Q130 265 130 232" stroke="#4a7c4a" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M160 298 Q180 270 200 245" stroke="#4a7c4a" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <ellipse cx="58" cy="241" rx="11" ry="7" fill="#8ab88a" opacity="0.7" transform="rotate(-20 58 241)"></ellipse>
+          <ellipse cx="48" cy="232" rx="9" ry="6" fill="#8ab88a" opacity="0.6" transform="rotate(-15 48 232)"></ellipse>
+          <ellipse cx="130" cy="228" rx="11" ry="7" fill="#8ab88a" opacity="0.7"></ellipse>
+          <ellipse cx="130" cy="215" rx="9" ry="6" fill="#8ab88a" opacity="0.6"></ellipse>
+          <ellipse cx="200" cy="241" rx="11" ry="7" fill="#8ab88a" opacity="0.7" transform="rotate(20 200 241)"></ellipse>
+          <ellipse cx="210" cy="232" rx="9" ry="6" fill="#8ab88a" opacity="0.6" transform="rotate(15 210 232)"></ellipse>
+          <path d="M60 245 Q38 218 24 192" stroke="#4a7c4a" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="5 4" opacity="0.4"></path>
+          <path d="M130 232 Q130 200 130 168" stroke="#4a7c4a" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="5 4" opacity="0.4"></path>
+          <path d="M200 245 Q222 218 236 192" stroke="#4a7c4a" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="5 4" opacity="0.4"></path>
+          <ellipse cx="100" cy="340" rx="16" ry="10" fill="#c8843a" opacity="0.2"></ellipse>
+          <ellipse cx="130" cy="350" rx="18" ry="11" fill="#c8843a" opacity="0.2"></ellipse>
+          <ellipse cx="160" cy="340" rx="15" ry="10" fill="#c8843a" opacity="0.2"></ellipse>
+          <text font-size="8" fill="#c8843a" x="88" y="370" font-family="sans-serif">future tubers (Aug–Sep)</text>
+          <text font-size="9" fill="#4a7c4a" x="2" y="228" font-family="sans-serif">keep all vines!</text>
+          <text font-size="9" fill="#c8843a" x="2" y="192" font-family="sans-serif">vines will sprawl 2–3 ft</text>
+          <text font-size="8" fill="#888" x="80" y="190" font-family="sans-serif">Day 5 — tiny now, big soon</text>
+        </svg>
+      </div>
+      <div class="prune-rules">
+        <div class="prune-rule skip"><div class="prune-rule-icon">⏸️</div><div><div class="prune-rule-title">No pruning at all — Day 5</div><div class="prune-rule-body">Sweet potato slips planted May 24 are only 5 days in. They need to push roots down and leaves up. Any pruning or disturbance now sets them back. Your only job: consistent moisture and letting them establish.</div></div></div>
+        <div class="prune-rule keep"><div class="prune-rule-icon">🌿</div><div><div class="prune-rule-title">Never heavily trim the vines — they feed the tubers</div><div class="prune-rule-body">Sweet potato vines are supposed to sprawl 2–3 feet in every direction — that's normal and healthy. The vines photosynthesize and send energy to the tubers. Aggressive trimming directly equals a smaller harvest.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">↩️</div><div><div class="prune-rule-title">Redirect, don't cut, if vines go somewhere inconvenient</div><div class="prune-rule-body">If a vine heads somewhere it truly shouldn't be, gently redirect rather than cut. Only trim vines that are absolutely unavoidable — always trim above a leaf node, not mid-stem.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">🛑</div><div><div class="prune-rule-title">Stop all fertilizer by late July for best harvest</div><div class="prune-rule-body">After late July, stop all feeding. You want the plant to stop growing more vines and instead swell the tubers. Yellowing vines in August–September = tubers are maturing. Harvest window opens late August through September.</div></div></div>
+      </div>
+    </div>
+  </div>
+  <!-- MANGO GINGER -->
+  <div class="prune-plant-panel" id="prune-mango-ginger">
+    <div class="prune-legend">
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#4a7c4a"></div> Keep / protect</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#c8843a"></div> Seasonal care</div>
+    </div>
+    <div class="prune-layout">
+      <div class="prune-svg-wrap">
+        <svg viewBox="0 0 260 380" xmlns="http://www.w3.org/2000/svg">
+          <rect x="90" y="316" width="80" height="46" rx="6" fill="#444" opacity="0.35"></rect>
+          <rect x="82" y="310" width="96" height="12" rx="4" fill="#444" opacity="0.4"></rect>
+          <ellipse cx="130" cy="330" rx="28" ry="10" fill="#c8843a" opacity="0.25"></ellipse>
+          <text font-size="8" fill="#c8843a" x="100" y="333" font-family="sans-serif">rhizome below soil</text>
+          <rect x="128" y="270" width="4" height="46" rx="2" fill="#4a7c4a"></rect>
+          <path d="M130 270 Q118 262 110 256" stroke="#4a7c4a" stroke-width="2" fill="none" stroke-linecap="round"></path>
+          <path d="M130 270 Q142 262 150 256" stroke="#4a7c4a" stroke-width="2" fill="none" stroke-linecap="round"></path>
+          <ellipse cx="106" cy="253" rx="10" ry="6" fill="#8ab88a" opacity="0.75" transform="rotate(-10 106 253)"></ellipse>
+          <ellipse cx="154" cy="253" rx="10" ry="6" fill="#8ab88a" opacity="0.75" transform="rotate(10 154 253)"></ellipse>
+          <rect x="30" y="155" width="200" height="56" rx="6" fill="#6a9eb5" opacity="0.06"></rect>
+          <line x1="30" y1="155" x2="230" y2="155" stroke="#6a9eb5" stroke-width="1" stroke-dasharray="4 3" opacity="0.4"></line>
+          <text font-size="8" fill="#6a9eb5" x="60" y="150" font-family="sans-serif">morning sun only — no afternoon sun</text>
+          <ellipse cx="130" cy="210" rx="70" ry="80" fill="none" stroke="#4a7c4a" stroke-width="1" stroke-dasharray="4 3" opacity="0.25"></ellipse>
+          <text font-size="8" fill="#4a7c4a" x="54" y="208" font-family="sans-serif">future size</text>
+          <text font-size="9" fill="#4a7c4a" x="154" y="252" font-family="sans-serif">new sprout — protect!</text>
+          <text font-size="9" fill="#4a7c4a" x="98" y="285" font-family="sans-serif">do not dig!</text>
+          <text font-size="8" fill="#888" x="84" y="304" font-family="sans-serif">Day 5 — establishing</text>
+        </svg>
+      </div>
+      <div class="prune-rules">
+        <div class="prune-rule skip"><div class="prune-rule-icon">⏸️</div><div><div class="prune-rule-title">No pruning whatsoever — Day 5, still emerging</div><div class="prune-rule-body">Mango ginger was planted May 24 from a tiny rhizome with a 1.5-inch sprout. This plant needs complete hands-off care right now. Do not dig, disturb, trim, or move it. The rhizome is establishing underground.</div></div></div>
+        <div class="prune-rule keep"><div class="prune-rule-icon">🌿</div><div><div class="prune-rule-title">Protect every leaf that emerges</div><div class="prune-rule-body">Keep it in bright shade or morning light only — full Tampa afternoon sun will scorch leaves before the plant establishes. Do not fertilize for at least 6 weeks. Don't dig to check on the rhizome — leave it alone.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">✂️</div><div><div class="prune-rule-title">Through summer: remove dead leaves only</div><div class="prune-rule-body">Through the growing season (April–November) the only pruning needed is removing fully yellowed or dead leaves. The plant will fill out naturally. You may see a flower spike mid-summer — can be left or removed based on preference.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">❄️</div><div><div class="prune-rule-title">November: let it die back — do not discard the pot</div><div class="prune-rule-body">When leaves yellow and die back in late fall, cut foliage to soil level but leave the pot in place. The rhizome is alive underground and will re-sprout on its own in spring. Do not throw the pot away.</div></div></div>
+      </div>
+    </div>
+  </div>
+  <!-- HERBS -->
+  <div class="prune-plant-panel" id="prune-herbs">
+    <div class="prune-legend">
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#b85c38"></div> Harvest / remove</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#4a7c4a"></div> Keep</div>
+      <div class="prune-leg"><div class="prune-leg-dot" style="background:#c8843a"></div> Remove to prevent bolting</div>
+    </div>
+    <div class="prune-layout">
+      <div class="prune-svg-wrap">
+        <svg viewBox="0 0 260 390" xmlns="http://www.w3.org/2000/svg">
+          <rect x="18" y="310" width="224" height="58" rx="8" fill="#c8843a" opacity="0.12" stroke="#c8843a" stroke-width="1.5"></rect>
+          <text font-size="9" fill="#c8843a" x="90" y="345" font-family="sans-serif">raised herb bed</text>
+          <line x1="18" y1="245" x2="242" y2="245" stroke="#4a7c4a" stroke-width="1" stroke-dasharray="5 4" opacity="0.45"></line>
+          <text font-size="8" fill="#4a7c4a" x="20" y="240" font-family="sans-serif">never cut below here (⅓ rule)</text>
+          <!-- ROSEMARY -->
+          <text font-size="10" fill="#2d4a2d" x="22" y="78" font-family="sans-serif" font-weight="500">Rosemary</text>
+          <path d="M48 310 L46 175" stroke="#888" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M58 310 L60 190" stroke="#888" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M46 175 Q28 163 16 154" stroke="#2d4a2d" stroke-width="2" fill="none"></path>
+          <path d="M46 175 Q64 163 76 155" stroke="#2d4a2d" stroke-width="2" fill="none"></path>
+          <path d="M46 202 Q28 191 16 183" stroke="#2d4a2d" stroke-width="2" fill="none"></path>
+          <path d="M46 202 Q62 191 74 183" stroke="#2d4a2d" stroke-width="2" fill="none"></path>
+          <path d="M60 190 Q72 180 82 174" stroke="#2d4a2d" stroke-width="1.5" fill="none"></path>
+          <line x1="10" y1="148" x2="20" y2="158" stroke="#b85c38" stroke-width="1.5"></line>
+          <line x1="20" y1="148" x2="10" y2="158" stroke="#b85c38" stroke-width="1.5"></line>
+          <line x1="70" y1="149" x2="80" y2="159" stroke="#b85c38" stroke-width="1.5"></line>
+          <line x1="80" y1="149" x2="70" y2="159" stroke="#b85c38" stroke-width="1.5"></line>
+          <circle cx="46" cy="162" r="5" fill="#c8843a" opacity="0.8"></circle>
+          <text font-size="8" fill="#854d0e" x="50" y="160" font-family="sans-serif">bud — remove!</text>
+          <text font-size="8" fill="#b85c38" x="2" y="146" font-family="sans-serif">snip tips</text>
+          <!-- THYME -->
+          <text font-size="10" fill="#2d4a2d" x="104" y="78" font-family="sans-serif" font-weight="500">Thyme</text>
+          <path d="M126 310 L128 200" stroke="#888" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M136 310 L138 212" stroke="#888" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M128 200 Q112 188 100 181" stroke="#2d4a2d" stroke-width="2" fill="none"></path>
+          <path d="M128 200 Q144 188 156 182" stroke="#2d4a2d" stroke-width="2" fill="none"></path>
+          <path d="M128 220 Q112 210 100 203" stroke="#2d4a2d" stroke-width="1.5" fill="none"></path>
+          <path d="M138 212 Q150 200 160 194" stroke="#2d4a2d" stroke-width="1.5" fill="none"></path>
+          <circle cx="96" cy="178" r="4" fill="#8ab88a" opacity="0.8"></circle>
+          <circle cx="158" cy="179" r="4" fill="#8ab88a" opacity="0.8"></circle>
+          <circle cx="96" cy="200" r="4" fill="#8ab88a" opacity="0.75"></circle>
+          <circle cx="162" cy="191" r="4" fill="#8ab88a" opacity="0.75"></circle>
+          <line x1="88" y1="172" x2="102" y2="184" stroke="#b85c38" stroke-width="1.5"></line>
+          <line x1="102" y1="172" x2="88" y2="184" stroke="#b85c38" stroke-width="1.5"></line>
+          <line x1="152" y1="173" x2="166" y2="185" stroke="#b85c38" stroke-width="1.5"></line>
+          <line x1="166" y1="173" x2="152" y2="185" stroke="#b85c38" stroke-width="1.5"></line>
+          <!-- OREGANO -->
+          <text font-size="10" fill="#2d4a2d" x="185" y="78" font-family="sans-serif" font-weight="500">Oregano</text>
+          <path d="M210 310 L208 185" stroke="#888" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M220 310 L222 200" stroke="#888" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <path d="M208 185 Q192 173 180 166" stroke="#2d4a2d" stroke-width="2" fill="none"></path>
+          <path d="M208 185 Q222 173 234 166" stroke="#2d4a2d" stroke-width="2" fill="none"></path>
+          <path d="M208 210 Q192 200 180 194" stroke="#2d4a2d" stroke-width="1.5" fill="none"></path>
+          <path d="M222 200 Q234 190 242 184" stroke="#2d4a2d" stroke-width="1.5" fill="none"></path>
+          <ellipse cx="176" cy="163" rx="8" ry="5" fill="#8ab88a" opacity="0.8"></ellipse>
+          <ellipse cx="236" cy="163" rx="8" ry="5" fill="#8ab88a" opacity="0.8"></ellipse>
+          <ellipse cx="176" cy="191" rx="7" ry="5" fill="#8ab88a" opacity="0.75"></ellipse>
+          <line x1="168" y1="157" x2="182" y2="169" stroke="#b85c38" stroke-width="1.5"></line>
+          <line x1="182" y1="157" x2="168" y2="169" stroke="#b85c38" stroke-width="1.5"></line>
+          <line x1="228" y1="157" x2="242" y2="169" stroke="#b85c38" stroke-width="1.5"></line>
+          <line x1="242" y1="157" x2="228" y2="169" stroke="#b85c38" stroke-width="1.5"></line>
+        </svg>
+      </div>
+      <div class="prune-rules">
+        <div class="prune-rule cut"><div class="prune-rule-icon">✂️</div><div><div class="prune-rule-title">Harvest tips — 3 to 4 inch sprigs from each branch</div><div class="prune-rule-body">Snip the top 3–4 inches of each branch, just above a set of leaves. This forces branching below the cut — plants get bushier and more productive. Always leave at least 2–3 sets of leaves below your cut. Do this in the morning when essential oils are highest.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">🌸</div><div><div class="prune-rule-title">Remove any flower buds or spikes immediately</div><div class="prune-rule-body">Once Mediterranean herbs bolt (flower), leaves turn bitter. In Tampa May–August heat this happens fast. Check tops of all three plants right now. Consistent tip harvesting is also the best prevention against bolting.</div></div></div>
+        <div class="prune-rule keep"><div class="prune-rule-icon">📏</div><div><div class="prune-rule-title">One-third rule — never more than ⅓ at once</div><div class="prune-rule-body">Never take more than one-third of a plant in a single session. Rosemary is especially sensitive — too much removal in summer heat can kill entire branches. If you want a large harvest, split it into two sessions a week apart.</div></div></div>
+        <div class="prune-rule cut"><div class="prune-rule-icon">🪵</div><div><div class="prune-rule-title">Rosemary: green growth only — never into grey wood</div><div class="prune-rule-body">Rosemary has soft pliable green new growth and stiff grey old woody stems. Only cut in the green zone. Cutting into old wood usually means that stem won't regrow. Thyme and oregano are more forgiving — but when in doubt, cut less.</div></div></div>
+        <div class="prune-rule warn"><div class="prune-rule-icon">💧</div><div><div class="prune-rule-title">Err dry — overwatering kills Mediterranean herbs fastest</div><div class="prune-rule-body">The raised bed drains well — let it. If in doubt whether to water, wait another day. Skip watering for 4–5 days after any good rain event. More Florida herb gardens have been lost to overwatering than drought.</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
      CALENDAR PANEL
 ═══════════════════════════════════════════════════════════ -->
 <div class="panel" id="panel-calendar">
@@ -926,7 +1560,7 @@
       <div class="cal-month-label" id="cal-month-label">May 2026</div>
       <button class="cal-nav-btn" onclick="calNext()">Next →</button>
     </div>
-    <div class="cal-grid" id="cal-grid"><div class="cal-dow">Sun</div><div class="cal-dow">Mon</div><div class="cal-dow">Tue</div><div class="cal-dow">Wed</div><div class="cal-dow">Thu</div><div class="cal-dow">Fri</div><div class="cal-dow">Sat</div><div class="cal-cell other-month"><div class="cal-day-num">26</div></div><div class="cal-cell other-month"><div class="cal-day-num">27</div></div><div class="cal-cell other-month"><div class="cal-day-num">28</div></div><div class="cal-cell other-month"><div class="cal-day-num">29</div></div><div class="cal-cell other-month"><div class="cal-day-num">30</div></div><div class="cal-cell"><div class="cal-day-num">1</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell"><div class="cal-day-num">2</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">3</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">4</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">5</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">6</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">7</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">8</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">9</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">10</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">11</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">12</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">13</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">14</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">15</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">16</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">17</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">18</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">19</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">20</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">21</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">22</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">23</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell"><div class="cal-day-num">24</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+10 more</div></div><div class="cal-cell"><div class="cal-day-num">25</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell"><div class="cal-day-num">26</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell today"><div class="cal-day-num">27</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+10 more</div></div><div class="cal-cell"><div class="cal-day-num">28</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">29</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell"><div class="cal-day-num">30</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+10 more</div></div><div class="cal-cell"><div class="cal-day-num">31</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+10 more</div></div><div class="cal-cell other-month"><div class="cal-day-num">1</div></div><div class="cal-cell other-month"><div class="cal-day-num">2</div></div><div class="cal-cell other-month"><div class="cal-day-num">3</div></div><div class="cal-cell other-month"><div class="cal-day-num">4</div></div><div class="cal-cell other-month"><div class="cal-day-num">5</div></div><div class="cal-cell other-month"><div class="cal-day-num">6</div></div></div>
+    <div class="cal-grid" id="cal-grid"><div class="cal-dow">Sun</div><div class="cal-dow">Mon</div><div class="cal-dow">Tue</div><div class="cal-dow">Wed</div><div class="cal-dow">Thu</div><div class="cal-dow">Fri</div><div class="cal-dow">Sat</div><div class="cal-cell other-month"><div class="cal-day-num">26</div></div><div class="cal-cell other-month"><div class="cal-day-num">27</div></div><div class="cal-cell other-month"><div class="cal-day-num">28</div></div><div class="cal-cell other-month"><div class="cal-day-num">29</div></div><div class="cal-cell other-month"><div class="cal-day-num">30</div></div><div class="cal-cell"><div class="cal-day-num">1</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell"><div class="cal-day-num">2</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">3</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">4</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">5</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">6</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">7</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">8</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">9</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">10</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">11</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">12</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">13</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">14</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">15</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">16</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">17</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">18</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">19</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">20</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+6 more</div></div><div class="cal-cell"><div class="cal-day-num">21</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">22</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+4 more</div></div><div class="cal-cell"><div class="cal-day-num">23</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell"><div class="cal-day-num">24</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+10 more</div></div><div class="cal-cell"><div class="cal-day-num">25</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell"><div class="cal-day-num">26</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell"><div class="cal-day-num">27</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+10 more</div></div><div class="cal-cell today"><div class="cal-day-num">28</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-water">💧 Pink lemon</div><div class="cal-pill cp-task">+7 more</div></div><div class="cal-cell"><div class="cal-day-num">29</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+8 more</div></div><div class="cal-cell"><div class="cal-day-num">30</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-check">👁 Check tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+10 more</div></div><div class="cal-cell"><div class="cal-day-num">31</div><div class="cal-pill cp-water">💧 Blueberry</div><div class="cal-pill cp-water">💧 Tri-citrus</div><div class="cal-pill cp-check">👁 Check pink lemon</div><div class="cal-pill cp-task">+10 more</div></div><div class="cal-cell other-month"><div class="cal-day-num">1</div></div><div class="cal-cell other-month"><div class="cal-day-num">2</div></div><div class="cal-cell other-month"><div class="cal-day-num">3</div></div><div class="cal-cell other-month"><div class="cal-day-num">4</div></div><div class="cal-cell other-month"><div class="cal-day-num">5</div></div><div class="cal-cell other-month"><div class="cal-day-num">6</div></div></div>
     <div class="cal-detail" id="cal-detail">
       <div class="cal-detail-date">Click any day to see tasks</div>
     </div>
@@ -1135,11 +1769,18 @@ function showPanel(id) {
   event.target.classList.add('active');
 }
 
+function showPrunePlant(id, btn) {
+  document.querySelectorAll('.prune-plant-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.prune-ptab').forEach(t => t.classList.remove('active'));
+  document.getElementById('prune-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
 
 // ═══════════════════════════════════════
 // CALENDAR ENGINE
 // ═══════════════════════════════════════
-const TODAY = new Date(2026, 4, 27); // May 27 2026
+const TODAY = new Date(2026, 4, 28); // May 28 2026
 let calYear = TODAY.getFullYear();
 let calMonth = TODAY.getMonth();
 let selectedDate = null;
